@@ -1,8 +1,9 @@
 import pygame
-#from bullet import Bullet
-class Ship():
+from pygame.sprite import Sprite
+class Ship(Sprite):
     def __init__(self,ai_settings,screen):
         #初始化飞船
+        super(Ship,self).__init__()
         self.screen=screen
         self.ai_settings=ai_settings
         #加载飞船图像并获取外接矩形
@@ -25,4 +26,8 @@ class Ship():
        # self.rect.centerx=self.center
     def blitme(self):
         #在指定位置绘制飞船
+
         self.screen.blit(self.image,self.rect)
+    def center_ship(self):
+        #飞船居中
+        self.center=self.screen_rect.centerx
